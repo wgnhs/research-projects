@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Research Projects</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Caroline Rose | cmrrose.github.com | Dec 2018 -->
+  
+  <!-- Load Leaflet from a CDN -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  
+  <!-- Archery target image by Alberto Barbati, from Wikimedia. https://commons.wikimedia.org/wiki/File:WA_80_cm_archery_target.svg -->
+  
+  <style>
+
+    /* Make the map fill the entire page */
+    #map {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+     
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  
+  <script>
+    /* JAVASCRIPT */
+    
+    /* ~~~~~~~~ Map ~~~~~~~~ */
+    //create a map, center it, and set the zoom level. 
+    //set zoomcontrol to false because we will add it in a different corner. 
+    var map = L.map('map', {zoomControl:false}).setView([45.06698,-92.810302], 7);
+
+    /* ~~~~~~~~ Map Layers ~~~~~~~~ */
+    //basemap from Open Street Map
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+    
+    /* ~~~~~~~~ Zoom Control ~~~~~~~~ */
+    //place a zoom control in the top right: 
+    new L.Control.Zoom({position: 'topright'}).addTo(map);
+
+    // some geocoding and all distances calculated via https://www.geosheets.com/demo
+    // locations in geojson format
+    var schoolsdata = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-size": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.12060546875,
+          42.94838139765314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.802490234375,
+          43.84245116699039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "project-leaders": "Santa",
+        "project-dates": "Christmas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.7470703125,
+          45.298075138707965
+        ]
+      }
+    }
+  ]
+}
+    
+     //custom icon with archery target
+    var archeryIcon = new L.Icon({
+        iconUrl: 'target-marker.png',
+        iconSize: [34, 45],
+        iconAnchor: [19, 45],
+        popupAnchor: [0, -45],
+        shadowUrl: 'markers-shadow@2x.png',
+        shadowSize: [36, 16],
+        shadowAnchor: [14, 15]
+    });
+    
+    //custom icon, plain blue-grey
+    var bluegreyIcon = new L.Icon({
+        iconUrl: 'bluegrey-marker.png',
+        iconSize: [34, 45],
+        iconAnchor: [19, 45],
+        popupAnchor: [0, -45],
+        shadowUrl: 'markers-shadow@2x.png',
+        shadowSize: [36, 16],
+        shadowAnchor: [14, 15]
+    });
+    
+    function defineIcon(iconproperty){
+      console.log("icon", iconproperty); 
+      if (iconproperty == "archeryIcon"){return archeryIcon;} else {return bluegreyIcon;}
+    }
+    
+    
+    //add the points to the map
+    var schoolpoints = L.geoJSON(schoolsdata, {
+      pointToLayer: function (feature, latlng){
+        //references the custom icon defined above
+        return L.marker(latlng, {icon: defineIcon(feature.properties.icon)});
+      }, 
+      onEachFeature: function (feature, layer){
+        layer.bindPopup("<b>project-leaders: </b><br>"+feature.properties["project-leaders"]+"<br><br><b>project-dates: </b>"+feature.properties["project-dates"])
+      }  
+    }).addTo(map); //add points to the map
+    
+    
+
+  </script>
+  
+</body>
+</html>
