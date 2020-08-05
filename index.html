@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Archery Schools</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Caroline Rose | cmrrose.github.com | Dec 2018 -->
+  
+  <!-- Load Leaflet from a CDN -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  
+  <!-- Archery target image by Alberto Barbati, from Wikimedia. https://commons.wikimedia.org/wiki/File:WA_80_cm_archery_target.svg -->
+  
+  <style>
+
+    /* Make the map fill the entire page */
+    #map {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+     
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  
+  <script>
+    /* JAVASCRIPT */
+    
+    /* ~~~~~~~~ Map ~~~~~~~~ */
+    //create a map, center it, and set the zoom level. 
+    //set zoomcontrol to false because we will add it in a different corner. 
+    var map = L.map('map', {zoomControl:false}).setView([45.06698,-92.810302], 7);
+
+    /* ~~~~~~~~ Map Layers ~~~~~~~~ */
+    //basemap from Open Street Map
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+    
+    /* ~~~~~~~~ Zoom Control ~~~~~~~~ */
+    //place a zoom control in the top right: 
+    new L.Control.Zoom({position: 'topright'}).addTo(map);
+
+    // some geocoding and all distances calculated via https://www.geosheets.com/demo
+    // locations in geojson format
+    var schoolsdata = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Place": "CENTRAL MIDDLE SCHOOL , WHITE BEAR LAKE, MN, UNITED STATES", "Lat": 45.0891448, "Lon": -93.0130547, "Distance": 10.010091, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.0130547, 45.0891448 ] } },
+{ "type": "Feature", "properties": { "Place": "CHAMPLIN PARK HIGH SCHOOL , CHAMPLIN, MN, UNITED STATES", "Lat": 45.176914, "Lon": -93.397481, "Distance": 29.61681, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.397481, 45.176914 ] } },
+{ "type": "Feature", "properties": { "Place": "CHANHASSEN HS , CHANHASSEN, MN, UNITED STATES", "Lat": 44.8460908, "Lon": -93.5754302, "Distance": 40.402944, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.5754302, 44.8460908 ] } },
+{ "type": "Feature", "properties": { "Place": "CHASKA HS , CHASKA, MN, UNITED STATES", "Lat": 44.8240712, "Lon": -93.58992694, "Distance": 41.656223, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.58992694, 44.8240712 ] } },
+{ "type": "Feature", "properties": { "Place": "CHASKA MIDDLE SCHOOL WEST , CHASKA, MN, UNITED STATES", "Lat": 44.80743655, "Lon": -93.60029121, "Distance": 42.596671, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.60029121, 44.80743655 ] } },
+{ "type": "Feature", "properties": { "Place": "COMMUNITY CHRISTIAN SCHOOL , MILACA, MN, UNITED STATES", "Lat": 45.728933, "Lon": -93.699267, "Distance": 62.863566, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.699267, 45.728933 ] } },
+{ "type": "Feature", "properties": { "Place": "EDINA COMMUNITY ED , EDINA, MN, UNITED STATES", "Lat": 44.912544, "Lon": -93.338569, "Distance": 27.932212, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.338569, 44.912544 ] } },
+{ "type": "Feature", "properties": { "Place": "FARIBAULT MIDDLE SCHOOL , FARIBAULT, MN, UNITED STATES", "Lat": 44.27095995, "Lon": -93.27660761, "Distance": 59.58142, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.27660761, 44.27095995 ] } },
+{ "type": "Feature", "properties": { "Place": "FOLEY HIGH SCHOOL, FOLEY, MN, UNITED STATES", "Lat": 45.67058, "Lon": -93.909086, "Distance": 67.704186, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.909086, 45.67058 ] } },
+{ "type": "Feature", "properties": { "Place": "JACKSON MIDDLE SCHOOL , CHAMPLIN, MN, UNITED STATES", "Lat": 45.15449425, "Lon": -93.3541035, "Distance": 27.19738, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.3541035, 45.15449425 ] } },
+{ "type": "Feature", "properties": { "Place": "LAKES INTERNATIONAL LANGUAGE ACADEMY , FOREST LAKE, MN, UNITED STATES", "Lat": 45.267986, "Lon": -92.980741, "Distance": 16.1807, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -92.980741, 45.267986 ] } },
+{ "type": "Feature", "properties": { "Place": "LINCOLN ELEMENTARY , WHITE BEAR LAKE, MN, UNITED STATES", "Lat": 45.07619, "Lon": -93.018543, "Distance": 10.181081, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.018543, 45.07619 ] } },
+{ "type": "Feature", "properties": { "Place": "MAHTOMEDI HIGH SCHOOL , MAHTOMEDI, MN, UNITED STATES", "Lat": 45.057759, "Lon": -92.95886, "Distance": 7.278036, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -92.95886, 45.057759 ] } },
+{ "type": "Feature", "properties": { "Place": "MAHTOMEDI MIDDLE SCHOOL , MAHTOMEDI, MN, UNITED STATES", "Lat": 45.057759, "Lon": -92.95886, "Distance": 7.278036, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -92.95886, 45.057759 ] } },
+{ "type": "Feature", "properties": { "Place": "MILACA WOLVES ARCHERY , MILACA, MN, UNITED STATES", "Lat": 45.742537, "Lon": -93.503429, "Distance": 57.525465, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.503429, 45.742537 ] } },
+{ "type": "Feature", "properties": { "Place": "MINNETONKA COMMUNITY EDUCATION , EXCELSIOR, MN, UNITED STATES", "Lat": 44.92783, "Lon": -93.399367, "Distance": 30.344174, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.399367, 44.92783 ] } },
+{ "type": "Feature", "properties": { "Place": "NEW PRAGUE FALCON RIDGE ELEMENTARY , NEW PRAGUE, MN, UNITED STATES", "Lat": 44.536713, "Lon": -93.55598, "Distance": 51.756114, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.55598, 44.536713 ] } },
+{ "type": "Feature", "properties": { "Place": "NEW PRAGUE HIGH SCHOOL , NEW PRAGUE, MN, UNITED STATES", "Lat": 44.5597169, "Lon": -93.57631824, "Distance": 51.362325, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.57631824, 44.5597169 ] } },
+{ "type": "Feature", "properties": { "Place": "NEW PRAGUE MIDDLE SCHOOL , NEW PRAGUE, MN, UNITED STATES", "Lat": 44.5500777, "Lon": -93.57574749, "Distance": 51.80107, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.57574749, 44.5500777 ] } },
+{ "type": "Feature", "properties": { "Place": "O.H. ANDERSON , MAHTOMEDI, MN, UNITED STATES", "Lat": 45.110485, "Lon": -93.051217, "Distance": 12.130315, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.051217, 45.110485 ] } },
+{ "type": "Feature", "properties": { "Place": "ONEKA ELEMENTARY , HUGO, MN, UNITED STATES", "Lat": 45.182366, "Lon": -92.945218, "Distance": 10.335278, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -92.945218, 45.182366 ] } },
+{ "type": "Feature", "properties": { "Place": "OPEN WORLD LEARNING COMMUNITY , ST. PAUL, MN, UNITED STATES", "Lat": 44.926646, "Lon": -93.084457, "Distance": 16.536009, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.084457, 44.926646 ] } },
+{ "type": "Feature", "properties": { "Place": "OTTER LAKE ELEMENTARY , WHITE BEAR LAKE, MN, UNITED STATES", "Lat": 45.132135, "Lon": -93.037842, "Distance": 11.97577, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.037842, 45.132135 ] } },
+{ "type": "Feature", "properties": { "Place": "PRINCETON HIGH SCHOOL , PRINCETON, MN, UNITED STATES", "Lat": 45.559776, "Lon": -93.585293, "Distance": 50.766375, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.585293, 45.559776 ] } },
+{ "type": "Feature", "properties": { "Place": "PRINCETON INTERMEDIATE SCHOOL , PRINCETON, MN, UNITED STATES", "Lat": 45.585232, "Lon": -93.582325, "Distance": 51.851868, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.582325, 45.585232 ] } },
+{ "type": "Feature", "properties": { "Place": "PRINCETON MIDDLE SCHOOL , PRINCETON, MN, UNITED STATES", "Lat": 45.58523825, "Lon": -93.57465109, "Distance": 51.5832, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.57465109, 45.58523825 ] } },
+{ "type": "Feature", "properties": { "Place": "SPECTRUM HIGH SCHOOL , ELK RIVER, MN, UNITED STATES", "Lat": 45.311803, "Lon": -93.557985, "Distance": 40.14564, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.557985, 45.311803 ] } },
+{ "type": "Feature", "properties": { "Place": "SPRINGVALE ACADEMY HOMESCHOOL , CAMBRIDGE, MN, UNITED STATES", "Lat": 45.093215, "Lon": -93.228248, "Distance": 20.471142, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.228248, 45.093215 ] } },
+{ "type": "Feature", "properties": { "Place": "ST CROIX PREPARATORY ACADEMY , STILLWATER, MN, UNITED STATES", "Lat": 45.06698, "Lon": -92.810302, "Distance": 0.0, "icon": "archeryIcon" }, "geometry": { "type": "Point", "coordinates": [ -92.810302, 45.06698 ] } },
+{ "type": "Feature", "properties": { "Place": "ST. ELIZABETH ANN SETON SCHOOL , HASTINGS, MN, UNITED STATES", "Lat": 44.739649, "Lon": -92.849054, "Distance": 22.69576, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -92.849054, 44.739649 ] } },
+{ "type": "Feature", "properties": { "Place": "SUNRISE MIDDLE SCHOOL , WHITE BEAR LAKE, MN, UNITED STATES", "Lat": 45.047578, "Lon": -93.020462, "Distance": 10.344607, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.020462, 45.047578 ] } },
+{ "type": "Feature", "properties": { "Place": "WATERTOWN,MAYER HIGH SCHOOL , WATERTOWN, MN, UNITED STATES", "Lat": 44.959239, "Lon": -93.854649, "Distance": 51.551247, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.854649, 44.959239 ] } },
+{ "type": "Feature", "properties": { "Place": "WESTONKA ELEMENTARY , MINNETRISTA, MN, UNITED STATES", "Lat": 44.938296, "Lon": -93.717741, "Distance": 45.214675, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.717741, 44.938296 ] } },
+{ "type": "Feature", "properties": { "Place": "WESTONKA HIGH SCHOOL , MOUND, MN, UNITED STATES", "Lat": 44.939319, "Lon": -93.66912, "Distance": 42.873335, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.66912, 44.939319 ] } },
+{ "type": "Feature", "properties": { "Place": "WESTONKA MIDDLE SCHOOL , MOUND, MN, UNITED STATES", "Lat": 44.939319, "Lon": -93.66912, "Distance": 42.873335, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.66912, 44.939319 ] } },
+{ "type": "Feature", "properties": { "Place": "WHITE BEAR LAKE AREA HIGH SCHOOL , WHITE BEAR LAKE, MN, UNITED STATES", "Lat": 45.047897, "Lon": -93.005378, "Distance": 9.613037, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.005378, 45.047897 ] } },
+{ "type": "Feature", "properties": { "Place": "WILLOW LANE ELEMENTARY , WHITE BEAR LAKE, MN, UNITED STATES", "Lat": 45.05121, "Lon": -93.026601, "Distance": 10.612755, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.026601, 45.05121 ] } },
+{ "type": "Feature", "properties": { "Place": "ZIMMERMAN MSHS , ZIMMERMAN, MN, UNITED STATES", "Lat": 45.467503, "Lon": -93.602475, "Distance": 47.431101, "icon": "bluegreyIcon" }, "geometry": { "type": "Point", "coordinates": [ -93.602475, 45.467503 ] } }
+]
+}
+    
+     //custom icon with archery target
+    var archeryIcon = new L.Icon({
+        iconUrl: 'target-marker.png',
+        iconSize: [34, 45],
+        iconAnchor: [19, 45],
+        popupAnchor: [0, -45],
+        shadowUrl: 'markers-shadow@2x.png',
+        shadowSize: [36, 16],
+        shadowAnchor: [14, 15]
+    });
+    
+    //custom icon, plain blue-grey
+    var bluegreyIcon = new L.Icon({
+        iconUrl: 'bluegrey-marker.png',
+        iconSize: [34, 45],
+        iconAnchor: [19, 45],
+        popupAnchor: [0, -45],
+        shadowUrl: 'markers-shadow@2x.png',
+        shadowSize: [36, 16],
+        shadowAnchor: [14, 15]
+    });
+    
+    function defineIcon(iconproperty){
+      console.log("icon", iconproperty); 
+      if (iconproperty == "archeryIcon"){return archeryIcon;} else {return bluegreyIcon;}
+    }
+    
+    
+    //add the points to the map
+    var schoolpoints = L.geoJSON(schoolsdata, {
+      pointToLayer: function (feature, latlng){
+        //references the custom icon defined above
+        return L.marker(latlng, {icon: defineIcon(feature.properties.icon)});
+      }, 
+      onEachFeature: function (feature, layer){
+        //set the popup content
+        layer.bindPopup("<b>School: </b><br>"+feature.properties.Place+"<br><br><b>Distance from SCPA: </b>"+feature.properties.Distance+" miles")
+      }  
+    }).addTo(map); //add points to the map
+    
+    
+
+  </script>
+  
+</body>
+</html>
