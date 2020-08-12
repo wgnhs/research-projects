@@ -90,7 +90,7 @@
       }, 
       onEachFeature: function (feature, layer){
         //set the popup content
-        layer.bindPopup("<b>project-leaders: </b><br>"+feature.properties["project-leaders"]+"<br><br><b>project-dates: </b>"+feature.properties["project-dates"])
+        layer.bindPopup("<b>Project Leaders: </b><br>"+feature.properties["project-leaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["project-dates"])
 
       }  
     }).addTo(map); //add points to the map
