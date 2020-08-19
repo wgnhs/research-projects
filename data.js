@@ -43,6 +43,7 @@ var schoolsdata = {
         "marker-symbol": "",
         "project-leaders": "Anna Fehling and David Hart",
         "project-dates": "2020 - 2021",
+        "picture": "mo.jpg"
       },
       "geometry": {
         "type": "Point",
