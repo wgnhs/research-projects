@@ -18,22 +18,36 @@
 
     /* Make the map fill the entire page */
     #map {
-            position: fixed;
+            position: relative;
             top: 0;
             bottom: 0;
-            left: 0;
-            right: 0;
+            width: 80%;
+            float: left;
+            height: 600px;
         }
-     
+      #sidebar {
+          width: 20%;
+          float: left;
+          height: 600px;
+          padding: 0px;
+      }
   </style>
 </head>
 <body>
   <div id="map"></div>
     
+  <div id="sidebar"> <p>This is the sidebar.</p></div>
+    
+   
+    
+    
  <script type="text/javascript" src="data.js"></script> 
   
   <script>
     /* JAVASCRIPT */
+      
+      /* ~~~~~ Sidebar ~~~~~ */
+      var sidebar=document.getElementById('sidebar');
     
     /* ~~~~~~~~ Map ~~~~~~~~ */
     //create a map, center it, and set the zoom level. 
@@ -91,7 +105,13 @@
       onEachFeature: function (feature, layer){
         //set the popup content
         layer.bindPopup("<b>Project Leaders: </b><br>"+feature.properties["project-leaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["project-dates"])
-
+          layer.on('click', function(e){
+             console.log('project dates are:', feature.properties["project-dates"]);    
+              
+              
+              sidebar.innerHTML= "<b>Project Leaders: </b><br>"+feature.properties["project-leaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["project-dates"];
+          
+                   })
       }  
     }).addTo(map); //add points to the map
     

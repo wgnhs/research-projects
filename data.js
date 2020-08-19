@@ -3,8 +3,12 @@ var schoolsdata = {
   "features": [
     {
       "type": "Feature",
-      "properties": {
-    "marker-size": ""
+        "properties": {
+         "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "project-leaders": "Mike Parsen and Pete Chase",
+        "project-dates": "Ongoing",
       },
       "geometry": {
         "type": "Point",
@@ -20,8 +24,9 @@ var schoolsdata = {
           "marker-color": "#7e7e7e",
         "marker-size": "medium",
         "marker-symbol": "",
-        "project-leaders": "Santa",
-        "project-dates": "Christmas"},
+        "project-leaders": "M. Carol McCartney, Brad Gottschalk, Carsyn Ames, Caroline Rose, and Esther Stewart",
+        "project-dates": "2020 - 2021"
+      },
       "geometry": {
         "type": "Point",
         "coordinates": [
@@ -36,8 +41,8 @@ var schoolsdata = {
         "marker-color": "#7e7e7e",
         "marker-size": "medium",
         "marker-symbol": "",
-        "project-leaders": "Santa",
-        "project-dates": "Christmas"
+        "project-leaders": "Anna Fehling and David Hart",
+        "project-dates": "2020 - 2021",
       },
       "geometry": {
         "type": "Point",
@@ -47,6 +52,5 @@ var schoolsdata = {
         ]
       }
     }
-   
   ]
 }
