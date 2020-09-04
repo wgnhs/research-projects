@@ -4,11 +4,11 @@ var schoolsdata = {
     {
       "type": "Feature",
         "properties": {
-         "marker-color": "#7e7e7e",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "project-leaders": "Mike Parsen and Pete Chase",
-        "project-dates": "Ongoing",
+         "markercolor": "#7e7e7e",
+        "markersize": "medium",
+        "markersymbol": "",
+        "projectleaders": "Mike Parsen and Pete Chase",
+        "projectdates": "Ongoing",
       },
       "geometry": {
         "type": "Point",
@@ -21,11 +21,11 @@ var schoolsdata = {
     {
       "type": "Feature",
       "properties": {
-          "marker-color": "#7e7e7e",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "project-leaders": "M. Carol McCartney, Brad Gottschalk, Carsyn Ames, Caroline Rose, and Esther Stewart",
-        "project-dates": "2020 - 2021"
+        "markercolor": "#7e7e7e",
+        "markersize": "medium",
+        "markersymbol": "",
+        "projectleaders": "M. Carol McCartney, Brad Gottschalk, Carsyn Ames, Caroline Rose, and Esther Stewart",
+        "projectdates": "2020 - 2021"
       },
       "geometry": {
         "type": "Point",
@@ -38,11 +38,11 @@ var schoolsdata = {
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#7e7e7e",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "project-leaders": "Anna Fehling and David Hart",
-        "project-dates": "2020 - 2021",
+        "markercolor": "#7e7e7e",
+        "markersize": "medium",
+        "markersymbol": "",
+        "projectleaders": "Anna Fehling and David Hart",
+        "projectdates": "2020 - 2021",
       },
       "geometry": {
         "type": "Point",

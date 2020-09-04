@@ -21,15 +21,15 @@
             position: relative;
             top: 0;
             bottom: 0;
-            width: 80%;
+            width: 100%;
             float: left;
             height: 600px;
         }
       #sidebar {
-          width: 20%;
-          float: left;
+          width: 30%;
           height: 600px;
           padding: 0px;
+          border: 1px red solid;
       }
   </style>
 </head>
@@ -52,7 +52,7 @@
     /* ~~~~~~~~ Map ~~~~~~~~ */
     //create a map, center it, and set the zoom level. 
     //set zoomcontrol to false because we will add it in a different corner. 
-    var map = L.map('map', {zoomControl:false}).setView([45.06698,-92.810302], 7);
+    var map = L.map('map', {zoomControl:false}).setView([44.76698,-89.810302], 7);
 
     /* ~~~~~~~~ Map Layers ~~~~~~~~ */
     //basemap from Open Street Map
@@ -104,12 +104,12 @@
       }, 
       onEachFeature: function (feature, layer){
         //set the popup content
-        layer.bindPopup("<b>Project Leaders: </b><br>"+feature.properties["project-leaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["project-dates"])
+        layer.bindPopup("<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"])
           layer.on('click', function(e){
-             console.log('project dates are:', feature.properties["project-dates"]);    
+             console.log('project dates are:', feature.properties["projectdates"]);    
               
               
-              sidebar.innerHTML= "<b>Project Leaders: </b><br>"+feature.properties["project-leaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["project-dates"];
+              sidebar.innerHTML= "<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"];
           
                    })
       }  
