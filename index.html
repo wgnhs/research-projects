@@ -141,12 +141,8 @@
              console.log('project dates are:', feature.properties["projectdates"]);    
               
               
-<<<<<<< HEAD
-              sidebar.innerHTML= "<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"];
-=======
-              sidebar.innerHTML= "<b>Project Leaders: </b><br><p>"+feature.properties["project-leaders"]+"</p><br><br><b>Project Dates: </b><p>"+feature.properties["project-dates"]+"</p><img src='"+feature.properties.picture+"'/>";
->>>>>>> 10f6b0f8b2bcc28b744ed34a0f5ce7daa607cd3e
-          
+          sidebar.innerHTML= "<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"];
+
                    })
       }  
     }).addTo(map); //add points to the map
