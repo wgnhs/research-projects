@@ -18,10 +18,11 @@
 
     /* Make the map fill the entire page */
     #map {
-            position: relative;
+           position: fixed;
             top: 0;
             bottom: 0;
             width: 100%;
+<<<<<<< HEAD
             float: left;
             height: 600px;
         }
@@ -30,13 +31,40 @@
           height: 600px;
           padding: 0px;
           border: 1px red solid;
+=======
+            
+            
+        }
+      #sidebar {
+        /* position */ 
+          position: fixed;
+          right: 0;
+          width: 30%;
+          z-index: 1000;
+          top: 0; 
+         bottom: 0;
+         
+          padding: 15px;
+        
+         /* appearance */
+          background-color: white;
+
+         
+          border: 1px grey solid;
+
+>>>>>>> 10f6b0f8b2bcc28b744ed34a0f5ce7daa607cd3e
       }
   </style>
 </head>
 <body>
+ 
   <div id="map"></div>
     
-  <div id="sidebar"> <p>This is the sidebar.</p></div>
+  <div id="sidebar"> 
+    
+    <p>This is the sidebar.</p>
+  
+  </div> <!-- end sidebar div-->
     
    
     
@@ -52,7 +80,11 @@
     /* ~~~~~~~~ Map ~~~~~~~~ */
     //create a map, center it, and set the zoom level. 
     //set zoomcontrol to false because we will add it in a different corner. 
+<<<<<<< HEAD
     var map = L.map('map', {zoomControl:false}).setView([44.76698,-89.810302], 7);
+=======
+    var map = L.map('map').setView([44.5,-89.5], 7);
+>>>>>>> 10f6b0f8b2bcc28b744ed34a0f5ce7daa607cd3e
 
     /* ~~~~~~~~ Map Layers ~~~~~~~~ */
     //basemap from Open Street Map
@@ -62,7 +94,7 @@
     
     /* ~~~~~~~~ Zoom Control ~~~~~~~~ */
     //place a zoom control in the top right: 
-    new L.Control.Zoom({position: 'topright'}).addTo(map);
+//    new L.Control.Zoom({position: 'topright'}).addTo(map);
 
     // some geocoding and all distances calculated via https://www.geosheets.com/demo
     // locations in geojson format
@@ -109,7 +141,11 @@
              console.log('project dates are:', feature.properties["projectdates"]);    
               
               
+<<<<<<< HEAD
               sidebar.innerHTML= "<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"];
+=======
+              sidebar.innerHTML= "<b>Project Leaders: </b><br><p>"+feature.properties["project-leaders"]+"</p><br><br><b>Project Dates: </b><p>"+feature.properties["project-dates"]+"</p><img src='"+feature.properties.picture+"'/>";
+>>>>>>> 10f6b0f8b2bcc28b744ed34a0f5ce7daa607cd3e
           
                    })
       }  

@@ -38,11 +38,20 @@ var schoolsdata = {
     {
       "type": "Feature",
       "properties": {
+<<<<<<< HEAD
         "markercolor": "#7e7e7e",
         "markersize": "medium",
         "markersymbol": "",
         "projectleaders": "Anna Fehling and David Hart",
         "projectdates": "2020 - 2021",
+=======
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "project-leaders": "Anna Fehling and David Hart",
+        "project-dates": "2020 - 2021",
+        "picture": "mo.jpg"
+>>>>>>> 10f6b0f8b2bcc28b744ed34a0f5ce7daa607cd3e
       },
       "geometry": {
         "type": "Point",
