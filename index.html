@@ -120,12 +120,12 @@
       }, 
       onEachFeature: function (feature, layer){
         //set the popup content
-        layer.bindPopup("<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"])
+        layer.bindPopup("<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"]+"<br><br><b>Project Summary: </b>"+feature.properties["projectsummary"]+"<br><br><b>GIS: </b>"+feature.properties["gis"]+"<br><br><b>Funded By: </b>"+feature.properties["fundedby"]+"<br><br><b>Collaborators: </b>"+feature.properties["collaborators"])
           layer.on('click', function(e){
              console.log('project dates are:', feature.properties["projectdates"]);    
               
               
-          sidebar.innerHTML= "<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"];
+          sidebar.innerHTML="<b>Project Leaders: </b><br>"+feature.properties["projectleaders"]+"<br><br><b>Project Dates: </b>"+feature.properties["projectdates"]+"<br><br><b>Project Summary: </b>"+feature.properties["projectsummary"]+"<br><br><b>GIS: </b>"+feature.properties["gis"]+"<br><br><b>Funded By: </b>"+feature.properties["fundedby"]+"<br><br><b>Collaborators: </b>"+feature.properties["collaborators"] 
 
                    })
       }  

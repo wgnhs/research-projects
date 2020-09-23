@@ -9,6 +9,10 @@ var schoolsdata = {
         "markersymbol": "",
         "projectleaders": "Mike Parsen and Pete Chase",
         "projectdates": "Ongoing",
+        "projectsummary": "WGNHS is beginning a one-year project to compile existing geologic mapping across 7 counties in southwestern Wisconsin into a two-layer Geologic Mapping Schema (GeMS)-compliant 1:250,000 geologic map database.",
+        "gis": "Steve Mauel",
+        "fundedby": "US Geological Survey",
+        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten"
       },
       "geometry": {
         "type": "Point",
