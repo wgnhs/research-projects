@@ -12,7 +12,8 @@ var schoolsdata = {
         "projectsummary": "WGNHS is beginning a one-year project to compile existing geologic mapping across 7 counties in southwestern Wisconsin into a two-layer Geologic Mapping Schema (GeMS)-compliant 1:250,000 geologic map database.",
         "gis": "Steve Mauel",
         "fundedby": "US Geological Survey",
-        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten"
+        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
+        "picture": "ken.png"
       },
       "geometry": {
         "type": "Point",
@@ -29,7 +30,9 @@ var schoolsdata = {
         "markersize": "medium",
         "markersymbol": "",
         "projectleaders": "M. Carol McCartney, Brad Gottschalk, Carsyn Ames, Caroline Rose, and Esther Stewart",
-        "projectdates": "2020 - 2021"
+        "projectdates": "2020 - 2021",
+        "picture": "shazwan.jpg"
+        
       },
       "geometry": {
         "type": "Point",

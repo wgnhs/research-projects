@@ -41,6 +41,9 @@
           border: 1px grey solid;
 
       }
+      #sidebar img {
+          width: 100%;
+      }
   </style>
 </head>
 <body>
@@ -84,18 +87,7 @@
     // locations in geojson format
     
     
-     //custom icon with archery target
-    var archeryIcon = new L.Icon({
-        iconUrl: 'target-marker.png',
-        iconSize: [34, 45],
-        iconAnchor: [19, 45],
-        popupAnchor: [0, -45],
-        shadowUrl: 'markers-shadow@2x.png',
-        shadowSize: [36, 16],
-        shadowAnchor: [14, 15]
-    });
-    
-    //custom icon, plain blue-grey
+       //custom icon, plain blue-grey
     var bluegreyIcon = new L.Icon({
         iconUrl: 'bluegrey-marker.png',
         iconSize: [34, 45],
@@ -106,10 +98,6 @@
         shadowAnchor: [14, 15]
     });
     
-    function defineIcon(iconproperty){
-      console.log("icon", iconproperty); 
-      if (iconproperty == "archeryIcon"){return archeryIcon;} else {return bluegreyIcon;}
-    }
     
     
     //add the points to the map
