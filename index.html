@@ -104,7 +104,7 @@
     var schoolpoints = L.geoJSON(schoolsdata, {
       pointToLayer: function (feature, latlng){
         //references the custom icon defined above
-        return L.marker(latlng, {icon: defineIcon(feature.properties.icon)});
+        return L.marker(latlng, {icon: bluegreyIcon});
       }, 
       onEachFeature: function (feature, layer){
         //set the popup content
