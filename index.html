@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Research Projects</title>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">-->
   
   <!-- Caroline Rose | cmrrose.github.com | Dec 2018 -->
   
@@ -43,6 +43,12 @@
       #sidebar img {
           width: 100%;
       }
+      .galleryBlock{
+          
+          
+      }
+      
+      
   </style>
 </head>
 <body>
@@ -112,14 +118,46 @@
              console.log('project dates are:', feature.properties.projectdates);    
               
               
-          sidebar.innerHTML="<h2>Project Title</h2><br><img src=project-photos/"
+          sidebar.innerHTML="<h2>Project Title</h2><br><img src="
               +feature.properties.picture+" alt='project image'/><b>Project Leaders: </b><br>"+feature.properties.projectleaders+"<br><br><b>Project Dates: </b>"+feature.properties.projectdates+"<br><br><b>Project Summary: </b>"+feature.properties.projectsummary+"<br><br><b>GIS: </b>"+feature.properties.gis+"<br><br><b>Funded By: </b>"+feature.properties.fundedby+"<br><br><b>Collaborators: </b>"+feature.properties.collaborators
 
                    })
       }  
     }).addTo(map); //add points to the map
     
-    
+    // comment here this is a comment
+      
+      loadGallery();
+      
+      
+    function  loadGallery(){
+        
+        sidebar.innerHTML= "<ul id='sidebarGalleryList' class ='gallery'></ul>";
+     
+      var sidebarGalleryList = document.getElementById('sidebarGalleryList');
+        
+     
+        for (var i=0; i<storymap.features.length; i++){
+          //  console.log(storymap.features[i].properties.projecttitle);
+            
+            var listItem = document.createElement("li");
+            var galleryImage = document.createElement("div");
+            var galleryTitle = document.createElement("p");
+            
+            listItem.className = "galleryBlock";
+            galleryTitle.innerHTML = storymap.features[i].properties.projecttitle;
+            galleryImage.setArrtibute = storymap.features[i].properties.picture;
+            
+            listItem.append(galleryImage);
+            listItem.append(galleryTitle);
+            
+            sidebarGalleryList.appendChild(listItem);
+            
+            
+        }
+        
+    }
+      
 
   </script>
   
