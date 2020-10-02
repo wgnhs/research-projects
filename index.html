@@ -146,7 +146,8 @@
           //click listener for the map points 
           layer.on('click', function(e){
               console.log('project dates are:', feature.properties.projectdates);    
-              showDetailsPanel(feature);
+              
+              showProjectDetails(feature);
           }); 
       }  
     }).addTo(map); //add points to the map
