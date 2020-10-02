@@ -31,7 +31,7 @@
           width: 30%;
           z-index: 1000;
           top: 0; 
-         bottom: 0;
+          bottom: 0;
          
           padding: 15px;
         
@@ -101,11 +101,10 @@
     //place a zoom control in the top right: 
 //    new L.Control.Zoom({position: 'topright'}).addTo(map);
 
-    // some geocoding and all distances calculated via https://www.geosheets.com/demo
-    // locations in geojson format
+
     
     
-       //custom icon, plain blue-grey
+    //custom icon, plain blue-grey
     var bluegreyIcon = new L.Icon({
         iconUrl: 'bluegrey-marker.png',
         iconSize: [34, 45],
@@ -118,7 +117,7 @@
     
     
     
-    //add the points to the map
+    //add the points to the map... 
     var researchpoints = L.geoJSON(storymap, {
       pointToLayer: function (feature, latlng){
         //references the custom icon defined above
@@ -127,6 +126,8 @@
       onEachFeature: function (feature, layer){
         //set the popup content
         layer.bindPopup("<b>Project Leaders: </b><br>"+feature.properties.projectleaders+"<br><br><b>Project Dates: </b>"+feature.properties.projectdates+"<br><br><b>Project Summary: </b>"+feature.properties.projectsummary+"<br><br><b>GIS: </b>"+feature.properties.gis+"<br><br><b>Funded By: </b>"+feature.properties.fundedby+"<br><br><b>Collaborators: </b>"+feature.properties.collaborators)
+        
+          //click listener for the map points 
           layer.on('click', function(e){
              console.log('project dates are:', feature.properties.projectdates);    
               
@@ -142,10 +143,13 @@
     
    /*------- SIDEBAR -------*/ 
   
-    
+  //call the function which populates the sidebar with the image gallery.  
    loadGallery();
    
+    
+  // this function populates the sidebar with the gallery of project images.   
   function loadGallery(){
+    
     sidebar.innerHTML="<ul id='sidebarGalleryList' class='gallery'></ul>";
     
     var sidebarGalleryList = document.getElementById('sidebarGalleryList'); 
