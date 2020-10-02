@@ -185,6 +185,7 @@
       var galleryImageDiv = document.createElement("div");
       
       listItem.className = "galleryBlock";
+      listItem.setAttribute("data-projectnumber", storymap.features[i].properties.projectnumber)
       
       galleryTitle.className = "galleryTitle";
       galleryTitle.innerHTML = storymap.features[i].properties.projecttitle; 
