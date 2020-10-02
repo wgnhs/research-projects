@@ -48,16 +48,32 @@
 
     
     .galleryBlock {
-      list-style-type: none;
-      margin: 3px;
+      /* position */
+      position: relative;
+      float: left;
       width: 150px;
       height: 150px;
-      float: left;
-      font-size: 10px;
-      background-color: #F9F9F9;
-      cursor: pointer;
-      position: relative;
+      margin: 3px;
       
+      /* appearance */
+      background-color: beige; 
+      list-style-type: none; /* no bullet points */
+
+      cursor: pointer;
+      
+    }
+    .galleryImage{
+        /*a div that has a background image*/
+      
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    .galleryTitle{
+        position: absolute;
+        padding-left: 5px; 
+        top: 118px; 
+        font-size: 11px;
     }
     
 
@@ -129,15 +145,21 @@
         
           //click listener for the map points 
           layer.on('click', function(e){
-             console.log('project dates are:', feature.properties.projectdates);    
-              
-              
-          sidebar.innerHTML="<h2>Project Title</h2><br><img src="
-              +feature.properties.picture+" alt='project image'/><b>Project Leaders: </b><br>"+feature.properties.projectleaders+"<br><br><b>Project Dates: </b>"+feature.properties.projectdates+"<br><br><b>Project Summary: </b>"+feature.properties.projectsummary+"<br><br><b>GIS: </b>"+feature.properties.gis+"<br><br><b>Funded By: </b>"+feature.properties.fundedby+"<br><br><b>Collaborators: </b>"+feature.properties.collaborators
-
-                   })
+              console.log('project dates are:', feature.properties.projectdates);    
+              showDetailsPanel(feature);
+          }); 
       }  
     }).addTo(map); //add points to the map
+    
+    
+    function showProjectDetails(feature){
+      
+      
+        //sidebar: 
+        sidebar.innerHTML="<h2>Project Title</h2><br><img src="
+              +feature.properties.picture+" alt='project image'/><b>Project Leaders: </b><br>"+feature.properties.projectleaders+"<br><br><b>Project Dates: </b>"+feature.properties.projectdates+"<br><br><b>Project Summary: </b>"+feature.properties.projectsummary+"<br><br><b>GIS: </b>"+feature.properties.gis+"<br><br><b>Funded By: </b>"+feature.properties.fundedby+"<br><br><b>Collaborators: </b>"+feature.properties.collaborators
+      
+    }
     
 
     
@@ -159,27 +181,28 @@
       
       var listItem = document.createElement("li"); 
       var galleryTitle = document.createElement("p");
-      var galleryImage = document.createElement("div");
+      var galleryImageDiv = document.createElement("div");
       
       listItem.className = "galleryBlock";
+      
+      galleryTitle.className = "galleryTitle";
       galleryTitle.innerHTML = storymap.features[i].properties.projecttitle; 
       
-      galleryImage.style.backgroundImage = 'url('+storymap.features[i].properties.picture+')';
-      galleryImage.style.height = "150px";
-      galleryImage.style.width = "150px";
+      galleryImageDiv.className = "galleryImage";
+      galleryImageDiv.style.backgroundImage = 'url('+storymap.features[i].properties.picture+')';
+      galleryImageDiv.style.height = "120px";
+      galleryImageDiv.style.width = "150px";
       
-      listItem.append(galleryImage);
+      //append each of the elements into the list item
+      listItem.append(galleryImageDiv);
       listItem.append(galleryTitle); 
-
+      
+      // add the listitem to the list 
       sidebarGalleryList.appendChild(listItem);
       
       
-    }
-    
-    
-  }   
-    
-      
+    } 
+  } // end function loadGallery    
 
 
   </script>
