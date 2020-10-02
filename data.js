@@ -4,6 +4,7 @@ var storymap = {
   "features": [
     {
       "type": "Feature",
+
       "properties": {
         "projecttitle": "Project Title 1",
         "markercolor": "#7e7e7e",
@@ -28,7 +29,7 @@ var storymap = {
     {
       "type": "Feature",
       "properties": {
-        "projecttitle": "Project Title 2",
+        "projecttitle":"Project Title 2",
         "markercolor": "#7e7e7e",
         "markersize": "medium",
         "markersymbol": "",
@@ -52,6 +53,7 @@ var storymap = {
     {
         "type": "Feature",
         "properties": {
+
           "projecttitle": "Project Title 3",
           "markercolor": "#7e7e7e",
           "markersize": "medium",
@@ -63,6 +65,7 @@ var storymap = {
           "fundedby": "US Geological Survey",
           "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
           "picture": "project-photos/shazwan.jpg"
+
 
       },
       "geometry": {
