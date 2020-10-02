@@ -12,7 +12,6 @@
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   
-  <!-- Archery target image by Alberto Barbati, from Wikimedia. https://commons.wikimedia.org/wiki/File:WA_80_cm_archery_target.svg -->
   
   <style>
 
@@ -101,10 +100,10 @@
     
     
     //add the points to the map
-    var schoolpoints = L.geoJSON(schoolsdata, {
+    var researchpoints = L.geoJSON(storymap, {
       pointToLayer: function (feature, latlng){
         //references the custom icon defined above
-        return L.marker(latlng, {icon: defineIcon(feature.properties.icon)});
+        return L.marker(latlng, {icon: bluegreyIcon});
       }, 
       onEachFeature: function (feature, layer){
         //set the popup content

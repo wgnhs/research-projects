@@ -1,5 +1,6 @@
-var schoolsdata = {
+var storymap = {
   "type": "FeatureCollection",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
   "features": [
     {
       "type": "Feature",
@@ -25,13 +26,17 @@ var schoolsdata = {
     },
     {
       "type": "Feature",
-      "properties": {
-        "markercolor": "#7e7e7e",
+        "properties": {
+         "markercolor": "#7e7e7e",
         "markersize": "medium",
         "markersymbol": "",
-        "projectleaders": "M. Carol McCartney, Brad Gottschalk, Carsyn Ames, Caroline Rose, and Esther Stewart",
-        "projectdates": "2020 - 2021",
-        "picture": "shazwan.jpg"
+        "projectleaders": "Mike Parsen and Pete Chase",
+        "projectdates": "Ongoing",
+        "projectsummary": "WGNHS is beginning a one-year project to compile existing geologic mapping across 7 counties in southwestern Wisconsin into a two-layer Geologic Mapping Schema (GeMS)-compliant 1:250,000 geologic map database.",
+        "gis": "Steve Mauel",
+        "fundedby": "US Geological Survey",
+        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
+        "picture": "ken.png"
         
       },
       "geometry": {
@@ -43,14 +48,18 @@ var schoolsdata = {
       }
     },
     {
-      "type": "Feature",
-      "properties": {
-        "markercolor": "#7e7e7e",
+        "type": "Feature",
+        "properties": {
+         "markercolor": "#7e7e7e",
         "markersize": "medium",
         "markersymbol": "",
-        "projectleaders": "Anna Fehling and David Hart",
-        "projectdates": "2020 - 2021",
-        "picture": "mo.jpg"
+        "projectleaders": "Mike Parsen and Pete Chase",
+        "projectdates": "Ongoing",
+        "projectsummary": "WGNHS is beginning a one-year project to compile existing geologic mapping across 7 counties in southwestern Wisconsin into a two-layer Geologic Mapping Schema (GeMS)-compliant 1:250,000 geologic map database.",
+        "gis": "Steve Mauel",
+        "fundedby": "US Geological Survey",
+        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
+        "picture": "ken.png"
 
       },
       "geometry": {
