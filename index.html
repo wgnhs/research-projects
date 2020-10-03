@@ -161,7 +161,25 @@
       
         // populate sidebar with the project details: 
         sidebar.innerHTML="<h2>Project Title</h2><br><img src="
-              +feature.properties.picture+" alt='project image'/><b>Project Leaders: </b><br>"+feature.properties.projectleaders+"<br><br><b>Project Dates: </b>"+feature.properties.projectdates+"<br><br><b>Project Summary: </b>"+feature.properties.projectsummary+"<br><br><b>GIS: </b>"+feature.properties.gis+"<br><br><b>Funded By: </b>"+feature.properties.fundedby+"<br><br><b>Collaborators: </b>"+feature.properties.collaborators
+              +feature.properties.picture+" alt='project image'/><b>Project Leaders: </b><br>"+feature.properties.projectleaders+"<br><br><b>Project Dates: </b>"+feature.properties.projectdates+"<br><br><b>Project Summary: </b>"+feature.properties.projectsummary+"<br><br><b>GIS: </b>"+feature.properties.gis+"<br><br><b>Funded By: </b>"+feature.properties.fundedby+"<br><br><b>Collaborators: </b>"+feature.properties.collaborators; 
+      
+      var closebutton = document.createElement("div");
+      closebutton.innerHTML = "X"; 
+      closebutton.style.backgroundColor = 'grey';
+      closebutton.style.position = "absolute"; 
+      closebutton.style.right = 0;
+      closebutton.style.top = 0;
+      closebutton.style.width = '30px';
+      closebutton.style.height = '30px';
+      closebutton.style.cursor = "pointer";
+      
+      sidebar.append(closebutton);
+      closebutton.addEventListener("click", function(){
+        map.closePopup();
+        
+        loadGallery();
+        
+      });
       
     }
     
