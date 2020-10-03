@@ -155,8 +155,11 @@
     
     function showProjectDetails(feature){
       
+      console.log("show details for project number ", feature.properties.projectnumber);
       
-        //sidebar: 
+     
+      
+        // populate sidebar with the project details: 
         sidebar.innerHTML="<h2>Project Title</h2><br><img src="
               +feature.properties.picture+" alt='project image'/><b>Project Leaders: </b><br>"+feature.properties.projectleaders+"<br><br><b>Project Dates: </b>"+feature.properties.projectdates+"<br><br><b>Project Summary: </b>"+feature.properties.projectsummary+"<br><br><b>GIS: </b>"+feature.properties.gis+"<br><br><b>Funded By: </b>"+feature.properties.fundedby+"<br><br><b>Collaborators: </b>"+feature.properties.collaborators
       
@@ -202,8 +205,17 @@
       // add the listitem to the list 
       sidebarGalleryList.appendChild(listItem);
       
-      
     } 
+    
+    //add an event listener to the UL element (through event delegation, this creates listeners on all li elements inside of the list). 
+    sidebarGalleryList.addEventListener("click", function(e){
+      
+      console.log("clicked on gallery block for project number ", e.target.closest('li').getAttribute("data-projectnumber"));
+       
+       
+      
+    }); 
+    
   } // end function loadGallery    
 
 
