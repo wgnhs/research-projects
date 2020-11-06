@@ -23,7 +23,7 @@ var storymap = {
         "type": "Point",
         "coordinates": [
           -91.82060546875,
-          42.14838139765314
+          44.88838139765314
         ]
       }
     },
@@ -47,7 +47,7 @@ var storymap = {
         "geometry": {
         "type": "Point",
         "coordinates": [
-          -91.35060546875,
+          -89.35060546875,
           42.4838139765314
         ]
       }
@@ -56,7 +56,7 @@ var storymap = {
       "type": "Feature",
       "properties": {
         "projectnumber": 2,
-        "projecttitle":"Project Title 2",
+        "projecttitle":"Project Title 3",
         "markercolor": "#7e7e7e",
         "markersize": "medium",
         "markersymbol": "",
@@ -73,7 +73,7 @@ var storymap = {
         "type": "Point",
         "coordinates": [
           -90.12060546875,
-          42.94838139765314
+          45.94838139765314
         ]
       }
     },
@@ -81,7 +81,7 @@ var storymap = {
       "type": "Feature",
       "properties": {
         "projectnumber": 2,
-        "projecttitle":"Project Title 2",
+        "projecttitle":"Project Title 4",
         "markercolor": "#7e7e7e",
         "markersize": "medium",
         "markersymbol": "",
@@ -97,7 +97,7 @@ var storymap = {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.12060546875,
+          -89.12060546875,
           43.77738139765314
         ]
       }
@@ -106,7 +106,7 @@ var storymap = {
       "type": "Feature",
       "properties": {
         "projectnumber": 2,
-        "projecttitle":"Project Title 2",
+        "projecttitle":"Project Title 5",
         "markercolor": "#7e7e7e",
         "markersize": "medium",
         "markersymbol": "",
@@ -122,7 +122,7 @@ var storymap = {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -88.802490234375,
+          -88.6802490234375,
           43.84245116699039
         ]
       }
@@ -131,7 +131,7 @@ var storymap = {
         "type": "Feature",
         "properties": {
           "projectnumber": 3,
-          "projecttitle": "Project Title 3",
+          "projecttitle": "Project Title 6",
           "markercolor": "#7e7e7e",
           "markersize": "medium",
           "markersymbol": "",
