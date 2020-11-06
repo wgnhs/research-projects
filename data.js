@@ -19,11 +19,86 @@ var storymap = {
         "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
         "picture": "project-photos/ken.png"
       },
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.82060546875,
+          42.14838139765314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "projectnumber": 2,
+        "projecttitle":"Project Title 2",
+        "markercolor": "#7e7e7e",
+        "markersize": "medium",
+        "markersymbol": "",
+        "projectleaders": "Mike Parsen and Pete Chase",
+        "projectdates": "Ongoing",
+        "projectsummary": "WGNHS is beginning a one-year project to compile existing geologic mapping across 7 counties in southwestern Wisconsin into a two-layer Geologic Mapping Schema (GeMS)-compliant 1:250,000 geologic map database.",
+        "gis": "Steve Mauel",
+        "fundedby": "US Geological Survey",
+        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
+        "picture": "project-photos/mo.jpg"
+        
+      },
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.35060546875,
+          42.4838139765314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "projectnumber": 2,
+        "projecttitle":"Project Title 2",
+        "markercolor": "#7e7e7e",
+        "markersize": "medium",
+        "markersymbol": "",
+        "projectleaders": "Mike Parsen and Pete Chase",
+        "projectdates": "Ongoing",
+        "projectsummary": "WGNHS is beginning a one-year project to compile existing geologic mapping across 7 counties in southwestern Wisconsin into a two-layer Geologic Mapping Schema (GeMS)-compliant 1:250,000 geologic map database.",
+        "gis": "Steve Mauel",
+        "fundedby": "US Geological Survey",
+        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
+        "picture": "project-photos/mo.jpg"
+        
+      },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -91.12060546875,
+          -90.12060546875,
           42.94838139765314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "projectnumber": 2,
+        "projecttitle":"Project Title 2",
+        "markercolor": "#7e7e7e",
+        "markersize": "medium",
+        "markersymbol": "",
+        "projectleaders": "Mike Parsen and Pete Chase",
+        "projectdates": "Ongoing",
+        "projectsummary": "WGNHS is beginning a one-year project to compile existing geologic mapping across 7 counties in southwestern Wisconsin into a two-layer Geologic Mapping Schema (GeMS)-compliant 1:250,000 geologic map database.",
+        "gis": "Steve Mauel",
+        "fundedby": "US Geological Survey",
+        "collaborators": "Sarah Bremmer, Carsyn Ames, Bill Batten",
+        "picture": "project-photos/mo.jpg"
+        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.12060546875,
+          43.77738139765314
         ]
       }
     },
